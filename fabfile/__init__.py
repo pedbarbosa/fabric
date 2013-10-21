@@ -1,4 +1,6 @@
 # Import other Python files
+from puppet import *
+from say import *
 from sshkey import *
 from yum import *
 
