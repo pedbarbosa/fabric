@@ -24,7 +24,7 @@ def puppet_update():
     with settings( warn_only=True ):
         if exists ( '/var/lib/puppet/state/agent_catalog_run.lock' ):
             say ( 'Puppet is currently running on background - sleeping 15 secs' )
-            local ( 'sleep 15' )
+            local ( 'sleep 20' )
         result = sudo ('puppet agent --test --no-noop')
         if result.return_code == 0:
             say ( 'Puppet run - No changes performed' )
