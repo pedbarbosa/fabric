@@ -1,4 +1,4 @@
-from fabric.api import settings, sudo
+from fabric.api import run, settings, sudo
 from fabric.contrib.files import exists
 
 from say import *
@@ -25,6 +25,8 @@ def puppet_update():
         if exists ( '/var/lib/puppet/state/agent_catalog_run.lock' ):
             say ( 'Puppet is currently running on background - sleeping 15 secs' )
             local ( 'sleep 20' )
+        # Replace once all hosts have been set up with sudoers access
+        # result = run ('sudo puppet agent --test --no-noop')
         result = sudo ('puppet agent --test --no-noop')
         if result.return_code == 0:
             say ( 'Puppet run - No changes performed' )
