@@ -1,4 +1,5 @@
 # Import other Python files
+from netbackup import *
 from puppet import *
 from say import *
 from sshkey import *
